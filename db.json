@@ -1,0 +1,64 @@
+{
+    "slopes": [
+        {
+            "name": "Czarny Groń",
+            "city": "Andrychów",
+            "slope": 2,
+            "cords": {
+                "lat": 49.7882186,
+                "lon": 19.3671917
+            },
+            "photo": "https://www.placecage.com/100/85"
+        },
+        {
+            "name": "Kotelnica",
+            "city": "Białka Tatrzańska",
+            "slope": 8,
+            "cords": {
+                "lat": 49.388207,
+                "lon": 20.062158
+            },
+            "photo": "https://www.placecage.com/100/85"
+        },
+        {
+            "name": "Gubaya",
+            "city": "Zakopane",
+            "slope": 2,
+            "cords": {
+                "lat": 49.2758701,
+                "lon": 19.903836
+            },
+            "photo": "https://www.placecage.com/100/85"
+        },
+        {
+            "name": "Cisowa",
+            "city": "Cisowa",
+            "slope": 2,
+            "cords": {
+                "lat": 50.4497875,
+                "lon": 19.7060412
+            },
+            "photo": "https://www.placecage.com/100/85"
+        },
+        {
+            "name": "Szczyrkowsky",
+            "city": "Szczyrk",
+            "slope": 2,
+            "cords": {
+                "lat": 49.6964454,
+                "lon": 18.9377964
+            },
+            "photo": "https://www.placecage.com/100/85"
+        },
+        {
+            "name": "Pilsko",
+            "city": "Korbielów",
+            "slope": 2,
+            "cords": {
+                "lat": 49.559369,
+                "lon": 19.2987536
+            },
+            "photo": "https://www.placecage.com/75/65"
+        }
+    ]
+}
