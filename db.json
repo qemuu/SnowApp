@@ -1,70 +1,76 @@
 {
-    "slopes": [
-        {
-            "name": "Czarny Groń",
-            "city": "Andrychów",
-            "slope": 2,
-            "cords": {
-                "lat": 49.7882186,
-                "lon": 19.3671917
-            },
-            "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ1ocwRG1QyqihxwBWRswDtQSYQj4yGYDYIzRvDW8XjuyrTAHHn",
-            "favorite": true
-        },
-        {
-            "name": "Kotelnica",
-            "city": "Białka Tatrzańska",
-            "slope": 8,
-            "cords": {
-                "lat": 49.388207,
-                "lon": 20.062158
-            },
-            "photo":"https://tatryski.pl/data/ts_news/7/9/77026ec4892e970902b9672d9fc40431.jpg",
-            "favorite": false
-        },
-        {
-            "name": "Gubaya",
-            "city": "Zakopane",
-            "slope": 2,
-            "cords": {
-                "lat": 49.2758701,
-                "lon": 19.903836
-            },
-            "photo": "https://www.pkl.pl/data/pages/38/20181216_a9dsc06983v1.jpg",
-            "favorite": true
-        },
-        {
-            "name": "Cisowa",
-            "city": "Cisowa",
-            "slope": 2,
-            "cords": {
-                "lat": 50.4497875,
-                "lon": 19.7060412
-            },
-            "photo": "https://lh3.googleusercontent.com/proxy/C5Rzpc5JT-E3tulqwpbM7PtnxIv2htJos1hajMz7sc39mEqWtJViiN1Ez9w0P-1nTg6j_Cw8o1j29GtrbBNVQXNPl5uRRUJfQw",
-            "favorite": false
-        },
-        {
-            "name": "Szczyrkowsky",
-            "city": "Szczyrk",
-            "slope": 2,
-            "cords": {
-                "lat": 49.6964454,
-                "lon": 18.9377964
-            },
-            "photo": "https://img2.onthesnow.com/image/la/46/szczyrk_pl_new_cable_car_466741.jpg",
-            "favorite": true
-        },
-        {
-            "name": "Pilsko",
-            "city": "Korbielów",
-            "slope": 2,
-            "cords": {
-                "lat": 49.559369,
-                "lon": 19.2987536
-            },
-            "photo": "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/s960x960/49612752_10156186263058215_598115066876788736_o.jpg?_nc_cat=111&_nc_sid=2d5d41&_nc_oc=AQnYUaFxAnUni9duqxIcylE2gsj7memfH39zghFxiMRl0E0XOnfMw95Xzz5pXp539cg&_nc_ht=scontent-waw1-1.xx&_nc_tp=7&oh=4f81b73093107bed2372798f74b6d910&oe=5E8EB651",
-            "favorite": false
-        }
-    ]
+  "slopes": [
+    {
+      "id": 1,
+      "name": "Czarny Groń",
+      "city": "Andrychów",
+      "slope": 2,
+      "cords": {
+        "lat": 49.7882186,
+        "lon": 19.3671917
+      },
+      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ1ocwRG1QyqihxwBWRswDtQSYQj4yGYDYIzRvDW8XjuyrTAHHn",
+      "favorite": false
+    },
+    {
+      "id": 2,
+      "name": "Kotelnica",
+      "city": "Białka Tatrzańska",
+      "slope": 8,
+      "cords": {
+        "lat": 49.388207,
+        "lon": 20.062158
+      },
+      "photo": "https://tatryski.pl/data/ts_news/7/9/77026ec4892e970902b9672d9fc40431.jpg",
+      "favorite": false
+    },
+    {
+      "id": 3,
+      "name": "Gubaya",
+      "city": "Zakopane",
+      "slope": 2,
+      "cords": {
+        "lat": 49.2758701,
+        "lon": 19.903836
+      },
+      "photo": "https://www.pkl.pl/data/pages/38/20181216_a9dsc06983v1.jpg",
+      "favorite": false
+    },
+    {
+      "id": 4,
+      "name": "Cisowa",
+      "city": "Cisowa",
+      "slope": 2,
+      "cords": {
+        "lat": 50.4497875,
+        "lon": 19.7060412
+      },
+      "photo": "https://lh3.googleusercontent.com/proxy/C5Rzpc5JT-E3tulqwpbM7PtnxIv2htJos1hajMz7sc39mEqWtJViiN1Ez9w0P-1nTg6j_Cw8o1j29GtrbBNVQXNPl5uRRUJfQw",
+      "favorite": true
+    },
+    {
+      "id": 5,
+      "name": "Szczyrkowsky",
+      "city": "Szczyrk",
+      "slope": 2,
+      "cords": {
+        "lat": 49.6964454,
+        "lon": 18.9377964
+      },
+      "photo": "https://img2.onthesnow.com/image/la/46/szczyrk_pl_new_cable_car_466741.jpg",
+      "favorite": false
+    },
+    {
+      "id": 6,
+      "name": "Pilsko",
+      "city": "Korbielów",
+      "slope": 2,
+      "cords": {
+        "lat": 49.559369,
+        "lon": 19.2987536
+      },
+      "photo": "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/s960x960/49612752_10156186263058215_598115066876788736_o.jpg?_nc_cat=111&_nc_sid=2d5d41&_nc_oc=AQnYUaFxAnUni9duqxIcylE2gsj7memfH39zghFxiMRl0E0XOnfMw95Xzz5pXp539cg&_nc_ht=scontent-waw1-1.xx&_nc_tp=7&oh=4f81b73093107bed2372798f74b6d910&oe=5E8EB651",
+      "favorite": true
+    }
+  ]
 }

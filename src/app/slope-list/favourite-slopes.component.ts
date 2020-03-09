@@ -31,7 +31,7 @@ export class FavouriteSlopesComponent implements OnInit {
     this.http.getFavoriteSlopes()    
     .subscribe(res => {
       this.slopes = res
-      console.log(this.slopes)
+      
     
     })
   }

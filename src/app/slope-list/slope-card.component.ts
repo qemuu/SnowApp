@@ -9,8 +9,10 @@ import {map } from 'rxjs/operators'
   template: `
     
   
-    <img (click)='click()' class="card-img-top" src="{{slopes.photo}}" >
+    <img  class="card-img-top" src="{{slopes.photo}}" >
+    
     <div class="card-body">
+      <button (click)='click()' type="button" class="btn btn-primary">Add to favourites</button>
       <h5 class="card-image-overlay">Nazwa stoku: {{slopes.name}}</h5>
       <p class="card-text">Miasto: {{slopes.city}}</p>
       <p class="card-text"><small>Liczba tras: {{slopes.slope}} </small></p>
@@ -84,8 +86,41 @@ export class SlopeCardComponent implements OnInit {
     
   }
   click(){
-    console.log(this.slopes)
+    if(this.slopes.favorite === false){
+    const favOptionTrue = {
+      "id": this.slopes.id,
+    "name": this.slopes.name,
+    "city": this.slopes.city,
+    "slope": this.slopes.slope,
+    "cords": {
+      "lat": this.slopes.cords.lat,
+      "lon": this.slopes.cords.lon
+    },
+    "photo": this.slopes.photo,
+    "favorite": true}
     
+    this.searchService.updateFavourite(this.slopes.id,favOptionTrue).subscribe()
+    console.log(this.slopes.id)
+  
+  
+  }
+  if(this.slopes.favorite === true) {
+    const favOptionFalse = {
+      "id": this.slopes.id,
+    "name": this.slopes.name,
+    "city": this.slopes.city,
+    "slope": this.slopes.slope,
+    "cords": {
+      "lat": this.slopes.cords.lat,
+      "lon": this.slopes.cords.lon
+    },
+    "photo": this.slopes.photo,
+    "favorite": false}
+  
+    this.searchService.updateFavourite(this.slopes.id,favOptionFalse).subscribe()
+    console.log(this.slopes.id)
+  
+  }
     
     
     
