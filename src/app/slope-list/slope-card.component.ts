@@ -33,7 +33,7 @@ import {map } from 'rxjs/operators'
     .card-image-top{
       position:relative;
       width: 50px;
-      height:1px
+      
     }
     
 

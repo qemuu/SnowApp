@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li ngClass="nav-item">
         <a class="nav-link" routerLink="home">Home </a>
       </li>
       <li class="nav-item">
