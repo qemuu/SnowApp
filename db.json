@@ -8,7 +8,8 @@
                 "lat": 49.7882186,
                 "lon": 19.3671917
             },
-            "photo": "https://www.placecage.com/100/85"
+            "photo": "https://www.placecage.com/100/85",
+            "favorite": true
         },
         {
             "name": "Kotelnica",
@@ -18,7 +19,8 @@
                 "lat": 49.388207,
                 "lon": 20.062158
             },
-            "photo": "https://www.placecage.com/100/85"
+            "photo": "https://www.placecage.com/100/85",
+            "favorite": false
         },
         {
             "name": "Gubaya",
@@ -28,7 +30,8 @@
                 "lat": 49.2758701,
                 "lon": 19.903836
             },
-            "photo": "https://www.placecage.com/100/85"
+            "photo": "https://www.placecage.com/100/85",
+            "favorite": true
         },
         {
             "name": "Cisowa",
@@ -38,7 +41,8 @@
                 "lat": 50.4497875,
                 "lon": 19.7060412
             },
-            "photo": "https://www.placecage.com/100/85"
+            "photo": "https://www.placecage.com/100/85",
+            "favorite": false
         },
         {
             "name": "Szczyrkowsky",
@@ -48,7 +52,8 @@
                 "lat": 49.6964454,
                 "lon": 18.9377964
             },
-            "photo": "https://www.placecage.com/100/85"
+            "photo": "https://www.placecage.com/100/85",
+            "favorite": true
         },
         {
             "name": "Pilsko",
@@ -58,7 +63,8 @@
                 "lat": 49.559369,
                 "lon": 19.2987536
             },
-            "photo": "https://www.placecage.com/75/65"
+            "photo": "https://www.placecage.com/75/65",
+            "favorite": false
         }
     ]
 }

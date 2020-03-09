@@ -19,9 +19,9 @@ export class SlopeListComponent implements OnInit {
   ngOnInit() {
     this.slopeService.getSlopes().subscribe(res => {
       this.slopes = res
+      
     }
     )
-    
   }
   
   

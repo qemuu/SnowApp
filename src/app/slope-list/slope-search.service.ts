@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
 
 
 
@@ -9,22 +10,36 @@ import { Observable } from 'rxjs';
 })
 export class SlopeSearchService {
 
-  constructor(private http:HttpClient) {
+  constructor(private http: HttpClient) {
 
   }
   slopes
-  
-  
 
- 
+  favouriteSlopes: Observable<any>
 
-  getSlopes(){
+
+
+
+
+  getSlopes() {
     return this.http.get('http://localhost:3000/slopes')
   }
 
-  getWeather(lat:Number , lon:Number):Observable<any>{
+  getFavoriteSlopes() {
+    this.favouriteSlopes = this.http.get('http://localhost:3000/slopes')
+      .pipe(
+        map(slope => {
+          const favSlopes = slope.filter(fav => fav.favorite === true)
+          return favSlopes
+        })
+      )
+        
+      return this.favouriteSlopes
+  }
+
+  getWeather(lat: Number, lon: Number): Observable<any> {
     const apiKey = 'db99bc9a7ddcb4018f45351f868a2da1'
-    
+
     return this.http.get(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`)
   }
 
