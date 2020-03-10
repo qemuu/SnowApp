@@ -28,7 +28,7 @@ export class SlopeSearchService {
   getFavoriteSlopes() {
     this.favouriteSlopes = this.http.get('http://localhost:3000/slopes')
       .pipe(
-        map(slope => {
+        map((slope:Array<any>) => {
           const favSlopes = slope.filter(fav => fav.favorite === true)
           return favSlopes
         })

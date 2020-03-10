@@ -28,12 +28,10 @@ export class FavouriteSlopesComponent implements OnInit {
 
 
   ngOnInit() {
-    this.http.getFavoriteSlopes()    
-    .subscribe(res => {
+    this.http.getFavoriteSlopes().subscribe(res => {
       this.slopes = res
-      
-    
     })
+    
   }
 
 }
