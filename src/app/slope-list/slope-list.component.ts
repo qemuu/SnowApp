@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SlopeSearchService } from './slope-search.service'
 import { Slope } from './Slope';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-slope-list',
@@ -24,12 +25,7 @@ export class SlopeListComponent implements OnInit {
   }
 
   toggle(slope: Slope) {
-    const favOptionTrue = {
-      ...slope,
-      "favorite": slope.favorite === false ? true : false
-    }
-
-    this.slopeService.updateFavourite(slope.id, favOptionTrue).subscribe((resp) => {
+    this.slopeService.toggleFavorite(slope).subscribe((resp) => {
       this.fetchAllSlopes()
     })
   }

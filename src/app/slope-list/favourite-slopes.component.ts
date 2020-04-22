@@ -37,12 +37,7 @@ export class FavouriteSlopesComponent implements OnInit {
   }
 
   toggle(slope: Slope) {
-    const favOptionTrue = {
-      ...slope,
-      "favorite": slope.favorite === false ? true : false
-    }
-
-    this.service.updateFavourite(slope.id, favOptionTrue).subscribe((resp) => {
+    this.service.toggleFavorite(slope).subscribe((resp) => {
       this.fetchAllSlopes()
     })
   }
