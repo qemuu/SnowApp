@@ -1,7 +1,12 @@
 <div class="row">
   <div class="col">
     <div class="card-deck">
-      <app-slope-card class="card" *ngFor="let slope of slopes" [slopes]="slope"></app-slope-card>
+      <app-slope-card
+        class="card"
+        *ngFor="let slope of slopes"
+        [slopes]="slope"
+        (toggleFavourite)="toggle($event)"
+      ></app-slope-card>
     </div>
   </div>
 </div>

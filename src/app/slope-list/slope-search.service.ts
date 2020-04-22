@@ -10,49 +10,44 @@ import { map, filter } from 'rxjs/operators';
 })
 export class SlopeSearchService {
 
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private http: HttpClient) { }
+  
   slopes
 
   favouriteSlopes: Observable<any>
-
-
-
-
 
   getSlopes() {
     return this.http.get('http://localhost:3000/slopes')
   }
 
   getFavoriteSlopes() {
-    this.favouriteSlopes = this.http.get('http://localhost:3000/slopes')
+    this.favouriteSlopes = this.http.get('http://localhost:3000/slopes?favorite=true')
       .pipe(
-        map((slope:Array<any>) => {
-          const favSlopes = slope.filter(fav => fav.favorite === true)
-          return favSlopes
-        })
+        // map((slope:Array<any>) => {
+        //   const favSlopes = slope.filter(fav => fav.favorite === true)
+        //   return favSlopes
+        // })
       )
-        
-      return this.favouriteSlopes
+
+    return this.favouriteSlopes
   }
 
   getWeather(lat: Number, lon: Number): Observable<any> {
     const apiKey = 'db99bc9a7ddcb4018f45351f868a2da1'
-    
+
     return this.http.get(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`)
   }
-  
-  
-  updateFavourite(slopeId,slope){
-    const headerOptions = {
-      headers : new HttpHeaders({ 'Content-type': ' application/json' })
-    }
 
-    return this.http.put(`http://localhost:3000/slopes/${slopeId}`, slope, headerOptions)
+
+  updateFavourite(slopeId, slope) {
+    // const headerOptions = {
+    //   headers : ({ 'Content-type': ' application/json' })
+    // }
+
+    return this.http.put(`http://localhost:3000/slopes/${slopeId}`, slope)
   }
-  
-  
+
+
 }
 
 
