@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SlopeSearchService } from './slope-search.service'
-
+import { Slope } from './Slope';
 
 @Component({
   selector: 'app-slope-list',
@@ -9,20 +9,29 @@ import { SlopeSearchService } from './slope-search.service'
 })
 export class SlopeListComponent implements OnInit {
 
+  slopes: Slope[] = []
 
-  slopes
-  
-  
   constructor(private slopeService: SlopeSearchService) { }
-  
- 
+
   ngOnInit() {
-    this.slopeService.getSlopes().subscribe(res => {
-      this.slopes = res
-      
-    }
-    )
+    this.fetchAllSlopes()
   }
-  
-  
+
+  fetchAllSlopes() {
+    this.slopeService.getSlopes().subscribe(res => {
+      this.slopes = res as Slope[]
+    })
+  }
+
+  toggle(slope: Slope) {
+    const favOptionTrue = {
+      ...slope,
+      "favorite": slope.favorite === false ? true : false
+    }
+
+    this.slopeService.updateFavourite(slope.id, favOptionTrue).subscribe((resp) => {
+      this.fetchAllSlopes()
+    })
+  }
+
 }

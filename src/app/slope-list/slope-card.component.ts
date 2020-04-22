@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, } from '@angular/core';
 import { SlopeSearchService } from './slope-search.service'
 
 import { map } from 'rxjs/operators'
@@ -57,6 +57,9 @@ export class SlopeCardComponent implements OnInit {
   @Input()
   slopes
 
+  @Output()
+  toggleFavourite = new EventEmitter()
+
   constructor(private searchService: SlopeSearchService) { }
 
   ngOnInit() {
@@ -75,16 +78,8 @@ export class SlopeCardComponent implements OnInit {
   }
 
   click() {
-    debugger
-    const favOptionTrue = {
-      ...this.slopes,
-      "favorite": this.slopes.favorite === false ? true : false
-    }
-
-    this.searchService.updateFavourite(this.slopes.id, favOptionTrue).subscribe((resp) => {
-      this.slopes = resp
-      console.log(resp, this.slopes.id)
-    })
+    this.toggleFavourite.emit(this.slopes)
+    
 
   }
 
