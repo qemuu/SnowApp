@@ -1,7 +1,7 @@
-import { Component, OnInit, Input,} from '@angular/core';
-import {SlopeSearchService} from './slope-search.service'
+import { Component, OnInit, Input, } from '@angular/core';
+import { SlopeSearchService } from './slope-search.service'
 
-import {map } from 'rxjs/operators'
+import { map } from 'rxjs/operators'
 
 
 @Component({
@@ -12,7 +12,8 @@ import {map } from 'rxjs/operators'
     <img  class="card-img-top" src="{{slopes.photo}}" >
     
     <div class="card-body">
-      <button (click)='click()' type="button" class="btn btn-primary">Add to favourites</button>
+      <button (click)='click()' type="button" class="btn btn-primary" *ngIf="!slopes.favorite">Add to favourites</button>
+      <button (click)='click()' type="button" class="btn btn-primary"  *ngIf="slopes.favorite">Remove from favourites</button>
       <h5 class="card-image-overlay">Nazwa stoku: {{slopes.name}}</h5>
       <p class="card-text">Miasto: {{slopes.city}}</p>
       <p class="card-text"><small>Liczba tras: {{slopes.slope}} </small></p>
@@ -48,82 +49,43 @@ import {map } from 'rxjs/operators'
 })
 export class SlopeCardComponent implements OnInit {
 
-  
   weatherTemp$
   temp
   sky
   wind
-  
-  
-  
+
   @Input()
   slopes
-  
- 
 
+  constructor(private searchService: SlopeSearchService) { }
 
-  constructor(private searchService:SlopeSearchService) { 
-    
-
- 
-  }
-  
-
-
-  
   ngOnInit() {
-    this.searchService.getWeather(this.slopes.cords.lat,this.slopes.cords.lon)
-    .pipe(map(res => {
-      this.temp =( res.main.temp - 273.15).toFixed(1)
-      this.sky = res.weather[0].main
-      this.wind = res.wind.speed
-    }))
-    
-    .subscribe(re => this.weatherTemp$ = re)
-    
-    
-    
-    
+    this.searchService.getWeather(this.slopes.cords.lat, this.slopes.cords.lon)
+      .pipe(map(res => {
+        this.temp = (this.convertToCelcius(res.main.temp)).toFixed(1)
+        this.sky = res.weather[0].main
+        this.wind = res.wind.speed
+      }))
+
+      .subscribe(re => this.weatherTemp$ = re)
   }
-  click(){
-    if(this.slopes.favorite === false){
+
+  private convertToCelcius(temp: number) {
+    return temp - 273.15;
+  }
+
+  click() {
+    debugger
     const favOptionTrue = {
-      "id": this.slopes.id,
-    "name": this.slopes.name,
-    "city": this.slopes.city,
-    "slope": this.slopes.slope,
-    "cords": {
-      "lat": this.slopes.cords.lat,
-      "lon": this.slopes.cords.lon
-    },
-    "photo": this.slopes.photo,
-    "favorite": true}
-    
-    this.searchService.updateFavourite(this.slopes.id,favOptionTrue).subscribe()
-    console.log(this.slopes.id)
-  
-  
-  }
-  if(this.slopes.favorite === true) {
-    const favOptionFalse = {
-      "id": this.slopes.id,
-    "name": this.slopes.name,
-    "city": this.slopes.city,
-    "slope": this.slopes.slope,
-    "cords": {
-      "lat": this.slopes.cords.lat,
-      "lon": this.slopes.cords.lon
-    },
-    "photo": this.slopes.photo,
-    "favorite": false}
-  
-    this.searchService.updateFavourite(this.slopes.id,favOptionFalse).subscribe()
-    console.log(this.slopes.id)
-  
-  }
-    
-    
-    
+      ...this.slopes,
+      "favorite": this.slopes.favorite === false ? true : false
+    }
+
+    this.searchService.updateFavourite(this.slopes.id, favOptionTrue).subscribe((resp) => {
+      this.slopes = resp
+      console.log(resp, this.slopes.id)
+    })
+
   }
 
 }
