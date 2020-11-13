@@ -16,17 +16,17 @@ export class SlopeSearchService {
 
   favouriteSlopes: Observable<any>
 
-  getSlopes() {
-    return this.http.get('http://localhost:3000/slopes')
+  getOtherSlopes() {
+    return this.http.get('http://localhost:3000/slopes?favorite=false')
   }
 
   getFavoriteSlopes() {
     this.favouriteSlopes = this.http.get('http://localhost:3000/slopes?favorite=true')
       .pipe(
-        // map((slope:Array<any>) => {
-        //   const favSlopes = slope.filter(fav => fav.favorite === true)
-        //   return favSlopes
-        // })
+        map((slope:Array<any>) => {
+          const favSlopes = slope.filter(fav => fav.favorite === true)
+          return favSlopes
+        })
       )
 
     return this.favouriteSlopes
@@ -40,12 +40,15 @@ export class SlopeSearchService {
 
 
   updateFavourite(slopeId, slope) {
-    // const headerOptions = {
-    //   headers : ({ 'Content-type': ' application/json' })
-    // }
-
+    const headerOptions = {
+      headers : ({ 'Content-type': ' application/json' })
+    }
+    
     return this.http.put(`http://localhost:3000/slopes/${slopeId}`, slope)
   }
+
+  
+
 
 
 }

@@ -19,15 +19,26 @@ export class SlopeListComponent implements OnInit {
   }
 
   fetchAllSlopes() {
-    this.slopeService.getSlopes().subscribe(res => {
+    this.slopeService.getOtherSlopes().subscribe(res => {
       this.slopes = res as Slope[]
+      console.log(this.slopes)
     })
   }
-
+ 
+ 
+  //do naprawy \/
   toggle(slope: Slope) {
-    this.slopeService.toggleFavorite(slope).subscribe((resp) => {
+   if(slope['favorite'] == true){
+    slope['favorite'] = false
+   }else{
+    slope['favorite'] = true
+   }
+    
+    this.slopeService.updateFavourite(slope.id,slope).subscribe((resp) => {
       this.fetchAllSlopes()
     })
   }
 
 }
+
+

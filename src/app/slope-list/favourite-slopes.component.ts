@@ -24,21 +24,28 @@ export class FavouriteSlopesComponent implements OnInit {
 
   slopes: Slope[]
 
-  constructor(private service: SlopeSearchService) { }
+  constructor(private slopeService: SlopeSearchService) { }
 
   ngOnInit() {
     this.fetchAllSlopes()
   }
 
   fetchAllSlopes() {
-    this.service.getFavoriteSlopes().subscribe(res => {
+    this.slopeService.getFavoriteSlopes().subscribe(res => {
       this.slopes = res as Slope[]
     })
   }
 
   toggle(slope: Slope) {
-    this.service.toggleFavorite(slope).subscribe((resp) => {
-      this.fetchAllSlopes()
-    })
-  }
+    if(slope['favorite'] == true){
+     slope['favorite'] = false
+    }else{
+     slope['favorite'] = true
+    }
+     
+     this.slopeService.updateFavourite(slope.id,slope).subscribe((resp) => {
+       this.fetchAllSlopes()
+     })
+   }
+ 
 }
